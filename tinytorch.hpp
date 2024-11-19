@@ -17,6 +17,8 @@
 #include <type_traits>
 #include <unordered_map>
 #include <vector>
+#include <functional>
+#include <cstring>
 
 #ifdef __ARM_NEON
 #include <arm_neon.h>
@@ -868,7 +870,7 @@ class Tensor {
 
         // src0->grad += dst->grad matmul src1^T
         size_t n = src0->dims_[2], m = src0->dims_[3], p = dst->dims_[3];
-        #pragma omp parallel for collapse(2)
+        //#pragma omp parallel for collapse(2)
         for (size_t mati = 0; mati < matn; mati++) {
             float *in1_ma = in1 + mati * src1->mstride();
             for (size_t i = 0; i < n; i++) {

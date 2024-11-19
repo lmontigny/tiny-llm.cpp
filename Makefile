@@ -1,4 +1,4 @@
-CC = clang
+CC = g++
 CFLAGS = -O3 -Ofast -std=c++20 -g -fsanitize=address
 LDFLAGS =
 LDLIBS = -lm -lc++
